@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show user details</title>
+</head>
+<body>
+        <table border="black">
+            <tr>
+                <th>Serial no.</th>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+            <%for(let i=0;i<result.length;i++){%>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=result[i].id%></td>
+                <td><%=result[i].username%></td>
+                <td><%=result[i].email%></td>
+                <td>
+                <form method="get" action="/user/<%=result[i].id%>/edit">
+                  <button>Edit Username</button>
+                </form>
+                </td>
+                <td>
+                    <form method="get" action="/user/<%=result[i].id%>">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+        <br><br>
+</body>
+</html>
